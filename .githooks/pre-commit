@@ -1,0 +1,22 @@
+#!/bin/sh
+# Privacy pre-commit hook - blocks commits containing secrets
+echo "Running privacy pre-commit check..."
+
+FILES=$(git diff --cached --name-only | grep -v "^\.githooks/pre-commit$")
+
+if [ -n "$FILES" ]; then
+  if echo "$FILES" | xargs grep -l -E "@student\.aau\.dk" 2>/dev/null | grep -v "^\.githooks"; then
+    echo "ERROR: Student email found!"
+    exit 1
+  fi
+  if echo "$FILES" | grep -q "secrets\.json"; then
+    echo "ERROR: secrets file staged!"
+    exit 1
+  fi
+  if git diff --cached -U0 | grep -E "ghp_[A-Za-z0-9]{36}|gho_[A-Za-z0-9]{36}" 2>/dev/null; then
+    echo "ERROR: GitHub token!"
+    exit 1
+  fi
+fi
+
+echo "Privacy check passed."

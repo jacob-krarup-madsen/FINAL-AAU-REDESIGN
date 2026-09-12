@@ -1,0 +1,19 @@
+name: Stale
+on:
+  schedule:
+    - cron: '0 0 * * *'
+permissions:
+  issues: write
+  pull-requests: write
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-issue-stale: 60
+          days-before-pr-close: 14
+          stale-issue-message: "This issue is stale. Comment to keep open."
+          stale-pr-message: "This PR is stale. Update to keep open."
+          stale-issue-label: "stale"
+          stale-pr-label: "stale"

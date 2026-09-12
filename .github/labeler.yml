@@ -1,0 +1,7 @@
+# Labeler for PRs
+"bug":
+  - any: ['**/bug*', '**/fix*']
+"enhancement":
+  - any: ['**/feat*', '**/feature*']
+"documentation":
+  - any: ['**/*.md', '**/docs/**']
