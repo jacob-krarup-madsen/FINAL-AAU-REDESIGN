@@ -1,0 +1,77 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+client/node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Logs and debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE configs
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Editor swap files
+*~
+*.swp
+*.swo
+
+# Aider
+.aider*
+env_file.env
+
+# Coverage reports
+coverage/
+
+# QA screenshots
+qa-screenshots/
+
+# Archived assets (review before deleting)
+_archive/
+**/images/_archive/
+
+# Test artifacts
+test-results.json
+course-test-output.txt
+temp_registry.json
+stats.html
+stats.json
+
+# OpenCode local config (auto-generated)
+.agents/
+.config/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+e2e/screenshots/
+# Secrets & env - never commit
+secrets.json
+credentials.json
+*.pem
+*.key
+*.p12
+*.pfx
+*_rsa
+*_ed25519
