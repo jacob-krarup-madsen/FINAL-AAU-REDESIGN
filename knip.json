@@ -1,0 +1,18 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["client/eslint.config.js"],
+  "project": ["client/src/**/*.{ts,tsx}"],
+  "ignore": [
+    "client/src/vite-env.d.ts"
+  ],
+  "paths": {
+    "@/*": ["client/src/*"]
+  },
+  "rules": {
+    "files": "error",
+    "exports": "error",
+    "dependencies": "error",
+    "devDependencies": "error",
+    "types": "warn"
+  }
+}

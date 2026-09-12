@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="AAU Moodle Redesign - A modernized learning platform experience with a focus on usability, accessibility, and clean design." />
+    <title>AAU Moodle Redesign</title>
+    <script>
+      (function() {
+        try {
+          let theme = 'system';
+          let isCollapsed = false;
+          const saved = localStorage.getItem('aau-app-store');
+          if (saved) {
+            const store = JSON.parse(saved);
+            if (store && store.state) {
+              if (store.state.theme) {
+                theme = store.state.theme;
+              }
+              if (store.state.isCollapsed) {
+                isCollapsed = true;
+              }
+            }
+          }
+          const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.add('dark-mode');
+          }
+          if (isCollapsed) {
+            document.documentElement.classList.add('sidebar-collapsed');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!-- CSS is now imported in main.jsx or App.jsx -->
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
